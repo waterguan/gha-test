@@ -4,3 +4,6 @@ jobs:
   build:
     name: build project
     runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
