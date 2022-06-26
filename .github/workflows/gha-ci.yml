@@ -1,0 +1,6 @@
+name: test github actions
+on: [push]
+jobs: 
+  build:
+    name: build project
+    runs-on: ubuntu-latest
