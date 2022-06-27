@@ -41,7 +41,7 @@ jobs:
   notice-messge:
     name: notify the user of the result
     runs-on: ubuntu-latest
-    needs: [prepare]
+    needs: [build-and-deploy]
     steps:
       - name: send email
         uses: dawidd6/action-send-mail@master
@@ -54,8 +54,3 @@ jobs:
           body: GHA Success
           to: ${{ needs.prepare.outputs.TO_EMAIL_ACCOUNT }}
           from: ${{ secrets.FROM_EMAIL_ACCOUNT }}
-  # test:
-  #   name: test something
-  #   setps:
-  #     - name: print
-  #       run: echo another job
