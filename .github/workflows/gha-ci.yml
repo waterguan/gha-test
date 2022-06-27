@@ -36,17 +36,28 @@ jobs:
       - name: print
         run: |
           git config --list
+      # - name: deploy
+      #   uses: JamesIves/github-pages-deploy-action@releases/v3
+      #   with:
+      #     # ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      #     ACCESS_TOKEN: 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
+      #     GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      #     REPOSITORY_NAME: waterguan/waterguan.github.io
+      #     GIT_CONFIG_NAME: waterguan
+      #     GIT_CONFIG_EMAIL: 136087767@qq.com
+      #     BRANCH: page
+      #     FOLDER: build
       - name: deploy
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+        uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
           # ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          ACCESS_TOKEN: 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
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          REPOSITORY_NAME: waterguan/waterguan.github.io
-          GIT_CONFIG_NAME: waterguan
-          GIT_CONFIG_EMAIL: 136087767@qq.com
-          BRANCH: page
-          FOLDER: build
+          # ACCESS_TOKEN: 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
+          # GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          repository-name: waterguan/waterguan.github.io
+          git-config-name: waterguan
+          git-config-email: 136087767@qq.com
+          branch: page
+          folder: build
   
   # github actions结果通知
   notice-messge:
