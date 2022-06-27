@@ -33,10 +33,8 @@ jobs:
       - name: deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          TOKEN: ${{ secrets.ACCESS_TOKEN }}
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          REPOSITORY_NAME: waterguan/waterguan.github.io
-          BRANCH: master
+          BRANCH: page
           FOLDER: build
   
   # github actions结果通知
