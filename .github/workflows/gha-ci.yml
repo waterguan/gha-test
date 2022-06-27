@@ -30,14 +30,12 @@ jobs:
           echo "::set-output name=TO_EMAIL_ACCOUNT::$TO_EMAIL_ACCOUNT"
       - name: build
         run: npm run build
-      # - name: email notification
-      #   uses: 
-      - name: exit
-        env:
-          stepEnv: stepEnv
-        if: ${{ env.stepEnv == 'stepEnv' }}
-        run: |
-          echo just test $stepEnv $GITHUB_REF $GITHUB_ACTOR
+      - name: deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: master
+          FOLDER: build
   
   # github actions结果通知
   notice-messge:
