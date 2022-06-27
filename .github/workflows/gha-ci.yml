@@ -46,11 +46,11 @@ jobs:
       - name: send email
         uses: dawidd6/action-send-mail@master
         with:
-          server_address: smtp.126.com
-          server_port: 465
+          server_address: smtp.126.com # 邮件地址
+          server_port: 465 # smtp端口号
           username: ${{ secrets.FROM_EMAIL_ACCOUNT }}
           password: ${{ secrets.FROM_EMAIL_AUTH_CODE }}
           subject: GHA result
           body: GHA Success
-          to: ${{ needs.prepare.outputs.TO_EMAIL_ACCOUNT }}
+          to: ${{ needs.build-and-deploy.outputs.TO_EMAIL_ACCOUNT }} # 目的邮箱
           from: ${{ secrets.FROM_EMAIL_ACCOUNT }}
