@@ -1,6 +1,9 @@
 name: test github actions
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 env:
   workflowsEnv: workflowsEnv
@@ -34,11 +37,11 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          # GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           REPOSITORY_NAME: waterguan/waterguan.github.io
           GIT_CONFIG_NAME: waterguan
           GIT_CONFIG_EMAIL: 136087767@qq.com
-          BRANCH: master
+          BRANCH: page
           FOLDER: build
   
   # github actions结果通知
