@@ -36,7 +36,9 @@ jobs:
           # ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           REPOSITORY_NAME: waterguan/waterguan.github.io
-          BRANCH: page
+          GIT_CONFIG_NAME: waterguan
+          GIT_CONFIG_EMAIL: 136087767@qq.com
+          BRANCH: master
           FOLDER: build
   
   # github actions结果通知
