@@ -33,31 +33,12 @@ jobs:
           echo "::set-output name=TO_EMAIL_ACCOUNT::$TO_EMAIL_ACCOUNT"
       - name: build
         run: npm run build
-      - name: print
-        run: |
-          git config --list
-      # - name: deploy
-      #   uses: JamesIves/github-pages-deploy-action@releases/v3
-      #   with:
-      #     # ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-      #     ACCESS_TOKEN: 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
-      #     GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-      #     REPOSITORY_NAME: waterguan/waterguan.github.io
-      #     GIT_CONFIG_NAME: waterguan
-      #     GIT_CONFIG_EMAIL: 136087767@qq.com
-      #     BRANCH: page
-      #     FOLDER: build
       - name: deploy
-        uses: JamesIves/github-pages-deploy-action@releases/v4
+        uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          # ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          # ACCESS_TOKEN: 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
-          # GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          repository-name: waterguan/waterguan.github.io
-          git-config-name: waterguan
-          git-config-email: 136087767@qq.com
-          branch: page
-          folder: build
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }} # 本仓库需要个人访问令牌
+          BRANCH: page # 目标branch
+          FOLDER: build # 当前资源所在文件夹
   
   # github actions结果通知
   notice-messge:
@@ -70,9 +51,9 @@ jobs:
         with:
           server_address: smtp.126.com # 邮件地址
           server_port: 465 # smtp端口号
-          username: ${{ secrets.FROM_EMAIL_ACCOUNT }}
-          password: ${{ secrets.FROM_EMAIL_AUTH_CODE }}
+          username: ${{ secrets.FROM_EMAIL_ACCOUNT }} # 发件邮箱
+          password: ${{ secrets.FROM_EMAIL_AUTH_CODE }} # 授权码
           subject: GHA result
-          body: GHA Success
-          to: ${{ needs.build-and-deploy.outputs.TO_EMAIL_ACCOUNT }} # 目的邮箱
+          body: GHA Success # 邮件内容
+          to: ${{ needs.build-and-deploy.outputs.TO_EMAIL_ACCOUNT }} # 收件邮箱
           from: ${{ secrets.FROM_EMAIL_ACCOUNT }}
