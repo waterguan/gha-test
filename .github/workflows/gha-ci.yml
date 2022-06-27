@@ -36,7 +36,8 @@ jobs:
       - name: deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          # ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ACCESS_TOKEN: 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
           # GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           REPOSITORY_NAME: waterguan/waterguan.github.io
           GIT_CONFIG_NAME: waterguan
